@@ -24,7 +24,7 @@
             </div>
             <div class="rowElem">
                 <label><?php echo $form->labelEx($model,'password'); ?>
-                    <div class="formRight"><?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>255,'value'=>'')); ?></div>
+                    <div class="formRight"><?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>255,'value'=>'','style'=>"width:400px")); ?></div>
                     <div class="fix"><?php echo $form->error($model,'password'); ?></div>
             </div>
             <div class="rowElem buttons">

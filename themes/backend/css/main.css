@@ -1319,7 +1319,7 @@ a.download {
     width:100%;
     margin-left:0px !important;
 }
-.formRight input[type="text"], input[type="password"] {
+.formRight input[type="text"]{
     width: 400px !important;
 }
 table.display tr{
