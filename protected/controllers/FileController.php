@@ -282,6 +282,9 @@ class FileController extends Controller
         $allUrls->resetClick();
         $file = File::model()->findByAttributes(array('slug' => $slug));
         if ($file) {
+            $statistic = Statistic::model()->findBySql("SELECT * FROM ".Statistic::model()->tableName()." WHERE file_id=".$file->id." ORDER BY id DESC LIMIT 1");
+            $statistic->$type += 1;
+            $statistic->save();
             if (count($file['url']) > 0) {
                 foreach ($file['url'] as $url) {
                     if ($url->type == $type) {
@@ -293,9 +296,6 @@ class FileController extends Controller
                     }
                 }
             }
-            $statistic = Statistic::model()->findBySql("SELECT * FROM ".Statistic::model()->tableName()." WHERE file_id=".$file->id." ORDER BY id DESC LIMIT 1");
-            $statistic->$type += 1;
-            $statistic->save();
         } else {
             throw new CHttpException(404, 'The file requested  page does not exist.');
         }
