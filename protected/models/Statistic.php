@@ -113,15 +113,13 @@ class Statistic extends CActiveRecord
 	}
     public function reFormatDate($date){
         $lenght = strlen($date);
-        if($lenght == 8){
-            $day = str_split($date,2);
-            $month = str_split($day[1],2);
-            $year = str_split($date,4);
-            return $day[0]."/".$month[0]."/".$year[1];
+        if($lenght < 8){
+            $date = "0".$date;
         }
-        $day = str_split($date,1);
+        $day = str_split($date,2);
         $month = str_split($day[1],2);
         $year = str_split($date,4);
-        return $day[1]."/".$month[1]."/".$year[1];
+        return $day[0]."/".$month[0]."/".$year[1];
+
     }
 }
