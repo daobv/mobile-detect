@@ -111,4 +111,17 @@ class Statistic extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+    public function reFormatDate($date){
+        $lenght = strlen($date);
+        if($lenght == 8){
+            $day = str_split($date,2);
+            $month = str_split($day[1],2);
+            $year = str_split($date,4);
+            return $day[0]."/".$month[0]."/".$year[1];
+        }
+        $day = str_split($date,1);
+        $month = str_split($day[1],2);
+        $year = str_split($date,4);
+        return $day[1]."/".$month[1]."/".$year[1];
+    }
 }

@@ -90,8 +90,8 @@
     'pagerCssClass' => 'dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers',
     'columns' => array(
         array(
-            'name' => 'day',
-            'value' => 'Yii::app()->dateFormatter->format("dd/MM/yyyy",strtotime($data->day))',
+            'header' => 'Ngày',
+            'value' => 'Statistic::model()->reFormatDate($data->date)',
             'htmlOptions' => array('width' => '200px'),
             'filter' => ''
         ),
